@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://get-your-knowledge-here.github.io/sitemap.xml

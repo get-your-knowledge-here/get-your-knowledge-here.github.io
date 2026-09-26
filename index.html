@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Your Knowledge Here | Free Developer Tools &amp; Open Source</title>
+  <meta name="description" content="Free, open-source developer tools and coding tips from Get Your Knowledge Here (Quickk): a Caesar cipher decoder and npm package, plus privacy tools from MiniFyn." />
+  <meta name="author" content="Sylvester Das" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://get-your-knowledge-here.github.io/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/avatar.png" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Get Your Knowledge Here" />
+  <meta property="og:url" content="https://get-your-knowledge-here.github.io/" />
+  <meta property="og:title" content="Get Your Knowledge Here: Free Developer Tools" />
+  <meta property="og:description" content="Open-source developer tools and coding tips, plus free privacy tools from MiniFyn." />
+  <meta property="og:image" content="https://get-your-knowledge-here.github.io/caesar-cipher/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://get-your-knowledge-here.github.io/#website",
+        "url": "https://get-your-knowledge-here.github.io/",
+        "name": "Get Your Knowledge Here",
+        "publisher": { "@id": "https://get-your-knowledge-here.github.io/#org" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://get-your-knowledge-here.github.io/#org",
+        "name": "Get Your Knowledge Here",
+        "alternateName": "Quickk",
+        "url": "https://get-your-knowledge-here.github.io/",
+        "logo": "https://get-your-knowledge-here.github.io/assets/avatar.png",
+        "description": "Learn coding tips and tricks.",
+        "sameAs": [
+          "https://github.com/get-your-knowledge-here",
+          "https://www.youtube.com/channel/UCX6GsXr6u-C2mzoAvTm_Vog"
+        ],
+        "founder": { "@type": "Person", "name": "Sylvester Das", "worksFor": { "@id": "https://www.minifyn.com/#org" } }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.minifyn.com/#org",
+        "name": "MiniFyn",
+        "url": "https://www.minifyn.com",
+        "slogan": "The simplest way to shorten, share, and track your links."
+      },
+      {
+        "@type": "ItemList",
+        "name": "Projects",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "url": "https://get-your-knowledge-here.github.io/caesar-cipher/", "name": "Caesar Cipher Decoder & Encoder" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d; --text: #e6edf3;
+      --muted: #8b949e; --accent: #58a6ff; --violet: #a78bfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    header { border-bottom: 1px solid var(--border); background: var(--surface); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; color: var(--text); font-weight: 700; }
+    .brand img { border-radius: 50%; }
+    nav { display: flex; gap: 1.25rem; font-size: 0.9rem; }
+    nav a { color: var(--muted); }
+    .hero { padding: 4rem 0 2.5rem; }
+    .hero h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.2; font-weight: 800; max-width: 760px; }
+    .hero p { color: var(--muted); font-size: 1.1rem; margin-top: 1rem; max-width: 680px; }
+    section { padding: 2rem 0; }
+    h2 { font-size: 1.35rem; margin-bottom: 0.35rem; }
+    .desc { color: var(--muted); margin-bottom: 1.25rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .card.featured { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .card img { width: 48px; height: 48px; border-radius: 10px; object-fit: contain; }
+    .card h3 { font-size: 1.05rem; }
+    .card p { color: var(--muted); font-size: 0.9rem; }
+    .card .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600; }
+    .featured .body { flex: 1; min-width: 240px; }
+    .btn { display: inline-block; background: var(--accent); color: #0d1117; padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; }
+    .btn:hover { text-decoration: none; filter: brightness(1.1); }
+    .minifyn { background: linear-gradient(135deg, rgba(124,58,237,0.14), rgba(88,166,255,0.08)); border: 1px solid rgba(124,58,237,0.45); border-radius: 16px; padding: 1.5rem; }
+    .minifyn .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .minifyn .card { background: var(--bg); }
+    .minifyn .links a { color: var(--violet); }
+    footer { border-top: 1px solid var(--border); margin-top: 3rem; padding: 2rem 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="/"><img src="assets/avatar.png" width="36" height="36" alt="Get Your Knowledge Here logo" />Get Your Knowledge Here</a>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="https://www.youtube.com/channel/UCX6GsXr6u-C2mzoAvTm_Vog" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="https://github.com/get-your-knowledge-here" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.minifyn.com/?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=nav" target="_blank" rel="noopener">MiniFyn ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <h1>Free developer tools, open source and coding tips</h1>
+      <p>Small, well-tested tools you can use in the browser or drop into your code, from Sylvester Das and the team behind <a href="https://www.minifyn.com/?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=hero" target="_blank" rel="noopener">MiniFyn</a>.</p>
+    </div>
+
+    <section id="projects">
+      <h2>Open-source projects</h2>
+      <p class="desc">MIT-licensed, zero-dependency and free forever.</p>
+      <div class="grid">
+        <div class="card featured">
+          <img src="assets/caesar-cipher.png" alt="Caesar Cipher logo" width="48" height="48" />
+          <div class="body">
+            <h3>Caesar Cipher Decoder &amp; Encoder</h3>
+            <p>Encrypt, decrypt, ROT13 and brute-force all 25 shifts in your browser, or use the Node.js package with Strings, Buffers, Streams and TypeScript types.</p>
+          </div>
+          <div class="links">
+            <a class="btn" href="caesar-cipher/">Open the live tool</a>
+            <a href="https://www.npmjs.com/package/@gykh/caesar-cipher" target="_blank" rel="noopener">npm ↗</a>
+            <a href="https://github.com/get-your-knowledge-here/caesar-cipher" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="minifyn">
+        <h2>Free privacy &amp; sharing tools from MiniFyn</h2>
+        <p class="desc">The simplest way to shorten, share, and track your links, plus privacy-first apps that run on your device.</p>
+        <div class="grid">
+          <div class="card">
+            <img src="assets/minifyn.png" alt="MiniFyn logo" width="48" height="48" />
+            <h3>MiniFyn: URL Shortener &amp; Hub</h3>
+            <p>Lightning-fast edge link shortening, custom bio-links, QR code generator and link analytics with built-in threat protection.</p>
+            <div class="links">
+              <a href="https://www.minifyn.com/?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=card-minifyn" target="_blank" rel="noopener">Shorten a link free →</a>
+              <a href="https://www.minifyn.com/docs/api?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=card-api" target="_blank" rel="noopener">API docs</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/scamguard.png" alt="ScamGuard logo" width="48" height="48" />
+            <h3>ScamGuard: Link Checker</h3>
+            <p>Inspect suspicious links, QR codes and redirect chains before opening them to stay safe from phishing.</p>
+            <div class="links">
+              <a href="https://www.minifyn.com/scamguard?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=card-scamguard" target="_blank" rel="noopener">Check a link →</a>
+              <a href="https://chromewebstore.google.com/detail/scamguard-link-checker/cendbppkhplamddjfnbhgbejnpmfmlbi?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=card-scamguard" target="_blank" rel="noopener">Chrome</a>
+              <a href="https://play.google.com/store/apps/details?id=com.minifyn.linkguard&amp;referrer=utm_source%3Dgykh-org%26utm_medium%3Dreferral%26utm_campaign%3Dorg-site" target="_blank" rel="noopener">Android</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/censorfyn.png" alt="CensorFyn logo" width="48" height="48" />
+            <h3>CensorFyn: Offline Media Redact</h3>
+            <p>Auto-detect and irreversibly redact faces, passports, credit cards, PII text and QR codes, 100% offline.</p>
+            <div class="links">
+              <a href="https://www.minifyn.com/censorfyn?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=card-censorfyn" target="_blank" rel="noopener">Learn more →</a>
+              <a href="https://play.google.com/store/apps/details?id=com.minifyn.censorfyn&amp;referrer=utm_source%3Dgykh-org%26utm_medium%3Dreferral%26utm_campaign%3Dorg-site" target="_blank" rel="noopener">Android</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/clipfyn.png" alt="ClipFyn logo" width="48" height="48" />
+            <h3>ClipFyn: Video Preparation</h3>
+            <p>Inspect, crop, fit and prepare videos on-device for compatible sharing, with no quality loss or server uploads.</p>
+            <div class="links">
+              <a href="https://www.minifyn.com/clipfyn?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=card-clipfyn" target="_blank" rel="noopener">Learn more →</a>
+              <a href="https://play.google.com/store/apps/details?id=com.minifyn.clipfyn&amp;referrer=utm_source%3Dgykh-org%26utm_medium%3Dreferral%26utm_campaign%3Dorg-site" target="_blank" rel="noopener">Android</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2021–2026 Get Your Knowledge Here · Created by <a href="https://github.com/sylvesterdas" target="_blank" rel="noopener">Sylvester Das</a> · Built with <a href="https://www.minifyn.com/?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=footer" target="_blank" rel="noopener">MiniFyn</a></p>
+    </div>
+  </footer>
+</body>
+</html>
