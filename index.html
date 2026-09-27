@@ -81,7 +81,12 @@
     .brand img { border-radius: 50%; }
     nav { display: flex; gap: 1.25rem; font-size: 0.9rem; }
     nav a { color: var(--muted); }
-    .hero { padding: 4rem 0 2.5rem; }
+    .breadcrumbs { padding-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .breadcrumbs li + li::before { content: "›"; margin-right: 0.4rem; }
+    .breadcrumbs a { color: var(--muted); }
+    .breadcrumbs [aria-current] { color: var(--text); }
+    .hero { padding: 3rem 0 2.5rem; }
     .hero h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.2; font-weight: 800; max-width: 760px; }
     .hero p { color: var(--muted); font-size: 1.1rem; margin-top: 1rem; max-width: 680px; }
     section { padding: 2rem 0; }
@@ -124,6 +129,9 @@
   </header>
 
   <main class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol><li aria-current="page">Home</li></ol>
+    </nav>
     <div class="hero">
       <h1>Free developer tools, open source and coding tips</h1>
       <p>Small, well-tested tools you can use in the browser or drop into your code, from Sylvester Das and the team behind <a href="https://www.minifyn.com/?utm_source=gykh-org&amp;utm_medium=referral&amp;utm_campaign=org-site&amp;utm_content=hero" target="_blank" rel="noopener">MiniFyn</a>.</p>
