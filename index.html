@@ -92,8 +92,14 @@
     .card img { width: 48px; height: 48px; border-radius: 10px; object-fit: contain; }
     .card h3 { font-size: 1.05rem; }
     .card p { color: var(--muted); font-size: 0.9rem; }
-    .card .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600; }
+    .card .links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600; }
     .featured .body { flex: 1; min-width: 240px; }
+    .card.featured { position: relative; transition: border-color .15s; }
+    .card.featured:hover { border-color: var(--accent); }
+    .card-link { color: inherit; }
+    .card-link:hover { text-decoration: none; }
+    .card-link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+    .featured .links { position: relative; z-index: 1; }
     .btn { display: inline-block; background: var(--accent); color: #0d1117; padding: 0.55rem 1.1rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; }
     .btn:hover { text-decoration: none; filter: brightness(1.1); }
     .minifyn { background: linear-gradient(135deg, rgba(124,58,237,0.14), rgba(88,166,255,0.08)); border: 1px solid rgba(124,58,237,0.45); border-radius: 16px; padding: 1.5rem; }
@@ -129,7 +135,7 @@
         <div class="card featured">
           <img src="assets/avatar.png" alt="" width="48" height="48" />
           <div class="body">
-            <h3>Caesar Cipher Decoder &amp; Encoder</h3>
+            <h3><a class="card-link" href="caesar-cipher/">Caesar Cipher Decoder &amp; Encoder</a></h3>
             <p>Encrypt, decrypt, ROT13 and brute-force all 25 shifts in your browser, or use the Node.js package with Strings, Buffers, Streams and TypeScript types.</p>
           </div>
           <div class="links">
@@ -138,10 +144,10 @@
             <a href="https://github.com/get-your-knowledge-here/caesar-cipher" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
-        <div class="card">
+        <div class="card featured">
           <img src="assets/avatar.png" alt="" width="48" height="48" />
           <div class="body">
-            <h3>Vigenère Cipher Decoder &amp; Encoder</h3>
+            <h3><a class="card-link" href="vigenere-cipher/">Vigenère Cipher Decoder &amp; Encoder</a></h3>
             <p>Encrypt and decrypt with a keyword, or paste a secret message and crack the unknown key live with frequency analysis. Also a zero-dependency Node.js package.</p>
           </div>
           <div class="links">
