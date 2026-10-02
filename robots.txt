@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://get-your-knowledge-here.github.io/sitemap.xml
+Sitemap: https://gykh.sylvesterdas.com/sitemap.xml
